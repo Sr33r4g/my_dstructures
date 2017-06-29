@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+/*
+	************************
+	Krushkal's MST
+	************************
+*/
 typedef struct edge{
 
 		int x,y;	

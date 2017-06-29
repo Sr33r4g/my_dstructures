@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+/*
+	*****************************
+	This program is used to 
+	find the number of nodes at
+	 a given level.
+	The root node is at level 1.
+	*****************************
+*/
 int main(){
 	int N = 0;
 	scanf("%d",&N);

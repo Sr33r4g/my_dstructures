@@ -5,8 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int cmpr(const void *, const void *);
-
 void zombie(int *, int *, int *, int);
 void vampire(int *, int *, int *, int);
 
@@ -49,17 +47,6 @@ int main(){
 	return 0;
 }
 
-
-
-///for qsort()
-int cmpr(const void * x, const void * y){
-
-	int * a = (int *) x;
-	int * b = (int *) y;
-
-	return (b[2] - a[2]);
-
-}
 
 void zombie(int * zombies, int * zcount, int * total_zombie_power,int monster){
 	*(zombies + *zcount) = monster;

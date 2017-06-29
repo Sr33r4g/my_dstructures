@@ -2,7 +2,15 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+/*
+	*****************************
+	This program is used to join 
+	2 trees into 1.
 
+	It displays the root(topmost)
+	parent of every node.
+	*****************************
+*/
 int root(int *, int);
 void display(int *, int *,int);
 void weighted_union(int *, int *, int, int);

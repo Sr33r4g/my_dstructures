@@ -54,8 +54,6 @@ void disp(bool * arr, int n){
 		printf("\n");
 	}
 }
-void dfs(bool * arr, int * visited, int n, int current_node){
-
 			*(visited + current_node) = 1;
 			
 			for(int i = 0; i < n; i++){

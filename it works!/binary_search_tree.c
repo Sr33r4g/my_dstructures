@@ -1,7 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-							/////WORKS
+/*
+	*************************
+	Binary Search Tree
+	*************************
+*/
+
 typedef struct s{
 	int data;
 	struct s *left, *right;
