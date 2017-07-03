@@ -8,80 +8,47 @@ typedef struct n{
 
 }nodes;
 
-// insert(nodes *, int, nodes *, int , int );
+nodes * insert(nodes *, int, nodes *, int , int *);
 
 
 int main(){
 
-	nodes * root = NULL;
+	nodes * root = NULL;//(nodes *) malloc(sizeof(nodes));
 
-	printf("sizeof root : %d\n",root->key);
-
+	printf("sizeof root : %d\n",sizeof(root));
+	
 	int input[] = {8,7,6,3,4};
 
-	nodes * queue[(sizeof(input))/4] ;			/// lets consider the maximum size...
+	nodes * queue[(sizeof(input))/4];// = (nodes *) malloc(sizeof(nodes));			/// lets consider the maximum size...
 	int head = 0, tail = 0;
 
 	for(int i = 0; i < ((sizeof(input))/4); i++){
-
-			insert(root,*(input + i),queue,head,tail);
+			printf("%d\n",queue[i]);
+			insert(root,*(input),&queue,head,&tail);
 	}
-
-	disp(root);
-
-	// display(root);
+			// root = insert(root,*(input + i),queue,head,&tail);
+	// disp(root);
 
 	return 0;
 }
 
-void insert(nodes * root, int data, nodes * queue[], int head, int tail){
+nodes * insert(nodes * root, int data, nodes * queue, int head, int *tail){
 
-	printf("sizeof root : %d\n",sizeof(root));
+	// printf("address root : %d\n",root);//((nodes)*root).key);
 
-	if(root == NULL){									/// tree is empty
-		nodes * temp = (nodes *) (malloc(sizeof(nodes)));
+	if(root == NULL){
+		nodes *temp = (nodes *) malloc(sizeof(nodes));
 		temp->left = temp->right = NULL;
 		temp->key = data;
 		root = temp;
-		// printf("Root is null so made a new root\n");
-		printf("Root key : %d\n",root->key);
-		return;
+		printf("Root is null so made a new root\n");
+		return root;
 	}
 
-	*(queue + tail++) = root;
-
-	while(head != tail){
-
-		nodes * current_node;
-		current_node = (queue + head++);
-
-		if(current_node->left == NULL){
-			nodes * n = (nodes *) (malloc(sizeof(nodes)));
-			n->left = n->right = NULL;
-			n->key = data;
-			current_node->left = n;
-			printf("In left\n");
-			return;
-		}
-		else{
-			*(queue + tail++) = current_node->left;
-		}
-
-
-
-		if(current_node->right == NULL){
-			nodes * n = (nodes *) (malloc(sizeof(nodes)));
-			n->left = n->right = NULL;
-			n->key = data;
-			current_node->right = n;
-			printf("In right\n");
-			return;
-		}
-		else{
-			*(queue + tail++) = current_node->right;
-		}
-
-	}
+	// *(queue + *tail) = *root;
+	
+	
+		// return root;
 
 }
 

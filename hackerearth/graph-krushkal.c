@@ -4,6 +4,8 @@
 /*
 	************************
 	Krushkal's MST
+	Returns the weight of the
+	MST
 	************************
 */
 typedef struct edge{

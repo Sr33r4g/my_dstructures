@@ -53,7 +53,7 @@ void disp(bool * arr, int n){
 			printf("%d ",*(arr+i+j));
 		printf("\n");
 	}
-}
+
 			*(visited + current_node) = 1;
 			
 			for(int i = 0; i < n; i++){
