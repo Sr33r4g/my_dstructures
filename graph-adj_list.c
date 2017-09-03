@@ -60,12 +60,12 @@ void display(node *n){
 	printf("\n");
 }
 
-void bfs(node * root, bool visited){
+void bfs(node * root, bool  * visited, int n){
 
 	int head = 0, tail = 0;
-	node *queue[15];			///just a test value
+	node *queue[n];			///just a test value
 
-	for(int i = 0; i < 15; i++)			///all to null
+	for(int i = 0; i < n; i++)			///all to null
 		*(queue + i) = NULL;
 
 	queue[tail] = root;

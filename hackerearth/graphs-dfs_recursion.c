@@ -2,7 +2,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-	/// this program finds the total no. of connected components using recursion.
+/************************************
+	 This program finds the total no. 
+	 of connected components using recursion.
+*************************************/
+
 
 void disp(bool *, int);
 
@@ -16,8 +20,8 @@ int main(){
 		for(int i = 0; i < m; i++){
 			int x = 0, y = 0;
 			scanf("%d %d",&x,&y);
-			*(*(arr + x) + y) = 1;
-			*(*(arr + y) + x) = 1;
+			*(*(arr + (x - 1)) + y - 1) = 1;
+			*(*(arr + (y - 1)) + x - 1) = 1;
 		}
 
 		/*for(int i = 0; i < n; i++){
@@ -28,7 +32,7 @@ int main(){
 		}*/
 
 
-		disp(arr,n);
+		// disp(arr,n);
 
 
 int total_connected_components = 0;
@@ -36,7 +40,7 @@ int total_connected_components = 0;
 		for(int i = 0; i < n; i++){
 			if(!visited[i]){
 				total_connected_components++;
-				// dfs(arr,visited,n,i);
+				dfs(arr,visited,n,i);
 			}
 		}
 
@@ -50,17 +54,20 @@ void disp(bool * arr, int n){
 
 	for(int i = 0; i < n; i++){
 		for(int j = 0; j < n; j++)
-			printf("%d ",*(arr+i+j));
+			printf("%d ",*(arr+(i*n)+j));
 		printf("\n");
 	}
 
-			*(visited + current_node) = 1;
-			
-			for(int i = 0; i < n; i++){
-			
-			if((*(arr + ((current_node * n) + i)) == 1) && (*(visited + i) == 0) )
-				dfs(arr,visited,n,i);
-					
+}
 
-		}
+
+void dfs(bool * arr, bool * visited,int n, int current_node){
+
+	*(visited + current_node) = 1;
+
+	for(int i = 0; i < n; i++){		/// traverse further down
+		if((*(arr + ((current_node * n) + i)) == 1) && (*(visited + i) == 0) )
+				dfs(arr,visited,n,i);
+	}
+
 }
